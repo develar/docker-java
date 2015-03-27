@@ -34,4 +34,4 @@ RUN opkg-install curl && curl -jksSLH "Cookie: oraclelicense=accept-securebackup
 ENV JAVA_HOME /jdk
 ENV PATH ${PATH}:${JAVA_HOME}/bin
 
-ENTRYPOINT ["java", "-server", "-Djava.security.egd=file:/dev/urandom", "-XX:+UseConcMarkSweepGC"]
+ENTRYPOINT ["java", "-server", "-Djava.security.egd=file:/dev/urandom"]
