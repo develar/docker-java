@@ -6,6 +6,8 @@ ENV JAVA_VERSION_MINOR 45
 ENV JAVA_VERSION_BUILD 14
 ENV JAVA_PACKAGE server-jre
 
+# about nsswitch.conf - see https://registry.hub.docker.com/u/frolvlad/alpine-oraclejdk8/dockerfile/
+
 RUN apk add --update curl ca-certificates && \
  cd /tmp && \
  curl -o glibc-2.21-r2.apk "https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/glibc-2.21-r2.apk" && \
@@ -31,7 +33,8 @@ RUN apk add --update curl ca-certificates && \
   rm /jre/lib/jfr.jar && \
   rm -rf /jre/lib/jfr && \
   rm -rf /jre/lib/oblique-fonts && \
-  rm -rf /tmp/* /var/cache/apk/*
+  rm -rf /tmp/* /var/cache/apk/* && \
+  echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf
 
 ENV JAVA_HOME /jre
 ENV PATH ${PATH}:${JAVA_HOME}/bin
