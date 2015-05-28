@@ -6,6 +6,7 @@ This is based off [Alpine](https://registry.hub.docker.com/_/alpine/) to keep th
 Consider to use develar/java:8u45-dcevm during development — [DCEVM](http://dcevm.github.io).
 
 Docker compose example to run application from classes:
+
 ```yaml
 image: develar/java:8u45
 environment:
