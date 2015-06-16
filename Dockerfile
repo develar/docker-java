@@ -1,4 +1,4 @@
-FROM alpine:3.1
+FROM alpine:3.2
 MAINTAINER Vladimir Krivosheev <develar@gmail.com>
 
 ENV JAVA_VERSION_MAJOR 8
